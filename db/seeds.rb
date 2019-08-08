@@ -15,3 +15,5 @@ Comment.destroy_all
 
 a1 = Article.new(title: 'love', body: 'This is about love.')
 create_comments(a1, 2)
+
+Draft.create!(title: 'WIP', body: 'Writing something')
