@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_061603) do
+ActiveRecord::Schema.define(version: 2019_08_14_154202) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,24 @@ ActiveRecord::Schema.define(version: 2019_08_14_061603) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "car_codes", force: :cascade do |t|
+    t.string "code"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "partial_car_code_id"
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "title"
+    t.integer "car_code_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type", default: "Car", null: false
+    t.index ["car_code_id"], name: "index_cars_on_car_code_id"
+    t.index ["type"], name: "index_cars_on_type"
   end
 
   create_table "comments", force: :cascade do |t|

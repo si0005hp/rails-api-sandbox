@@ -1,0 +1,2 @@
+class PartialCarCode < BaseCarCode
+end
