@@ -1,0 +1,2 @@
+class MigrationStatusTest < ApplicationRecord
+end
